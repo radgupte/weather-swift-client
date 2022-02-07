@@ -124,7 +124,7 @@ final class MyLibraryTests: XCTestCase {
 
     func testGreetingMessage() throws {
         let myLibrary = MyLibrary()
-        let greeting = "Howdy Mate!!"
+        let greeting = "Heya Fella!"
         let expectation = XCTestExpectation(description: "Greet with a message")
         var isGreetingMessage: Bool?
 

@@ -6,10 +6,10 @@ public protocol WeatherService {
 }
 
 public class WeatherServiceImpl: WeatherService {
-    let w_url = "http://localhost:3000/v1/weather"
-    let auth_url = "http://localhost:3000/v1/auth"
-    let h_url = "http://localhost:3000/v1/hello"
-    let parameters = ["username": "sumer", "password": "abc123"]
+    let w_url = "http://172-31-13-213:3000/v1/weather"
+    let auth_url = "http://172-31-13-213:3000/v1/auth"
+    let h_url = "http://172-31-13-213:3000/v1/hello"
+    let parameters = ["username": "rad", "password": "abc54321"]
 
     public func getTemperature(completion: @escaping (_ response: Result<Int /* Temperature */, Error>) -> Void) {
         AF.request(auth_url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200..<300).responseDecodable(of: Auth.self) { response in

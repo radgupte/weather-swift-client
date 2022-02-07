@@ -29,11 +29,11 @@ class MockWeatherService: WeatherService {
     func getGreeting(completion: @escaping (_ response: Result<String /* Greeting */, Error>) -> Void) {
         switch (shouldSucceed, shouldReturnTemperatureWithAnEight) {
         case (true, true):
-            let greeting = "Howdy Mate!!"
+            let greeting = "Heya Fella!"
             completion(.success(greeting))
 
         case (true, false):
-            let greeting = "Not Howdy Mate!!"
+            let greeting = "Heya Fella NOT!"
             completion(.success(greeting))
 
         case (false, _):
