@@ -27,6 +27,27 @@ final class MyLibraryTests: XCTestCase {
         XCTAssert(isLuckyNumber == true)
     }
 
+    func testRealWeatherAPI() throws {
+        // Given
+
+        let myLibrary = MyLibrary()
+        let number = 4
+        let expectation = XCTestExpectation(description: "We asked about the number 0 and heard back 🎄")
+        var isLuckyNumber: Bool?
+
+        // When
+        myLibrary.isLucky(number, completion: { lucky in
+            isLuckyNumber = lucky
+            expectation.fulfill()
+        })
+
+        wait(for: [expectation], timeout: 5)
+
+        // Then
+        XCTAssertNotNil(isLuckyNumber)
+        XCTAssert(isLuckyNumber == false)
+    }
+
     func testIsLuckyBecauseWeatherHasAnEight() throws {
         // Given
         let mockWeatherService = MockWeatherService(
@@ -101,4 +122,22 @@ final class MyLibraryTests: XCTestCase {
         XCTAssertNil(isLuckyNumber)
     }
 
+    func testGreetingMessage() throws {
+        let myLibrary = MyLibrary()
+        let greeting = "Howdy Mate!!"
+        let expectation = XCTestExpectation(description: "Greet with a message")
+        var isGreetingMessage: Bool?
+
+        // When
+        myLibrary.isGreetingLucky(greeting, completion: { greeting in
+            isGreetingMessage = greeting
+            expectation.fulfill()
+        })
+
+        wait(for: [expectation], timeout: 5)
+
+        // Then
+        XCTAssertNotNil(isGreetingMessage)
+        XCTAssert(isGreetingMessage == true)
+    }
 }
