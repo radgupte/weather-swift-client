@@ -25,4 +25,20 @@ class MockWeatherService: WeatherService {
             completion(.failure(error404))
         }
     }
+
+    func getGreeting(completion: @escaping (_ response: Result<String /* Greeting */, Error>) -> Void) {
+        switch (shouldSucceed, shouldReturnTemperatureWithAnEight) {
+        case (true, true):
+            let greeting = "Howdy Mate!!"
+            completion(.success(greeting))
+
+        case (true, false):
+            let greeting = "Not Howdy Mate!!"
+            completion(.success(greeting))
+
+        case (false, _):
+            let error404 = AFError.explicitlyCancelled
+            completion(.failure(error404))
+        }
+    }
 }
