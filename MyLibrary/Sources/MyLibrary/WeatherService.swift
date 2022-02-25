@@ -30,6 +30,7 @@ public class WeatherServiceImpl: WeatherService {
                         let temperatureInt = Int(temperature)
                         completion(.success(temperatureInt))
 
+
                     case let .failure(error):
                         completion(.failure(error))
                     }
