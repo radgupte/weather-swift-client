@@ -6,6 +6,7 @@ public protocol WeatherService {
 }
 
 public class WeatherServiceImpl: WeatherService {
+
     let w_url = "http://54.189.99.230:3000/v1/weather"
     let auth_url = "http://54.189.99.230:3000/v1/auth"
     let h_url = "http://54.189.99.230:3000/v1/hello"
@@ -28,6 +29,7 @@ public class WeatherServiceImpl: WeatherService {
                         print(temperature)
                         let temperatureInt = Int(temperature)
                         completion(.success(temperatureInt))
+
 
                     case let .failure(error):
                         completion(.failure(error))
